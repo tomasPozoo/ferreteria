@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+{% load static %}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Navbar Ferremas</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap JS (carrusel) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+  <!-- ini barritaNavegacionnn-->
+  <nav class="navbar">
+    <div class="logo" >
+      <img  src="{% static 'images/logoFerremas.jpg' %}" alt="FERREMAS">
+    </div>
+    <div class="nav-links">
+      <div class="dropdown">
+        <a href="#" class="nav-item">Páginas</a>
+        <div class="dropdown-content">
+          <a href="{% url 'home' %}">Home</a>
+          <a href="{% url 'login' %}">Iniciar sesion👤</a>
+          <a href="{% url 'productos' %}">Herramientas 🛠️</a>
+          <a href="{% url 'quienesSomos' %}">Quienes somos?</a>
+          <a href="{% url 'contactanos' %}">Contactanos</a>
+        </div>
+      </div>
+      <a href="{% url 'login' %}" class="nav-item">
+        <span class="icon">👤</span> Iniciar Sesión
+      </a>
+      <a href="{% url 'shop' %}" class="nav-item">
+        <span class="icon">🛒</span> Carrito
+      </a>
+    </div>
+  </nav>
+
+  <!-- fin barritaNavegacionnn-->
+
+
+<!-- *****  ***** -->
+<section class="py-5">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="fw-bold">PRODUCTOS EXCLUSIVOS FERREMAS N°1 en herramientas</h2>
+    </div>
+    <div class="row g-4">
+
+      <!-- Producto -->
+      <div class="col-md-3 d-flex">
+        <div class="card border-0 shadow-sm h-100 w-100 d-flex flex-column">
+          <img src="../static/images/taladroPercutor.jpg" class="card-img-top product-img" alt="Taladro Inalámbrico">
+          <div class="card-body text-center d-flex flex-column justify-content-between">
+            <div>
+              <h6 class="card-title">Taladro Inalámbrico 20V</h6>
+              <p class="fw-bold">$69.990</p>
+            </div>
+            <div class="d-flex justify-content-center gap-2 mt-3">
+              <button class="btn add-cart-btn">
+                <i class="fas fa-cart-plus"></i> Agregar al Carro
+              </button>
+              <a href="#" class="btn view-product-btn">
+                <i class="fas fa-eye"></i> Ver Producto
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto -->
+      <div class="col-md-3 d-flex">
+        <div class="card border-0 shadow-sm h-100 w-100 d-flex flex-column">
+          <img src="../static/images/motocierra.jpg" class="card-img-top product-img" alt="Sierra Circular">
+          <div class="card-body text-center d-flex flex-column justify-content-between">
+            <div>
+              <h6 class="card-title">Sierra Circular 7¼"</h6>
+              <p class="fw-bold">$54.990</p>
+            </div>
+            <div class="d-flex justify-content-center gap-2 mt-3">
+              <button class="btn add-cart-btn">
+                <i class="fas fa-cart-plus"></i> Agregar al Carro
+              </button>
+              <a href="#" class="btn view-product-btn">
+                <i class="fas fa-eye"></i> Ver Producto
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto -->
+      <div class="col-md-3 d-flex">
+        <div class="card border-0 shadow-sm h-100 w-100 d-flex flex-column">
+          <img src="../static/images/cortamadera.jpg" class="card-img-top product-img" alt="Atornillador">
+          <div class="card-body text-center d-flex flex-column justify-content-between">
+            <div>
+              <h6 class="card-title">Atornillador Eléctrico</h6>
+              <p class="fw-bold">$29.990</p>
+            </div>
+            <div class="d-flex justify-content-center gap-2 mt-3">
+              <button class="btn add-cart-btn">
+                <i class="fas fa-cart-plus"></i> Agregar al Carro
+              </button>
+              <a href="#" class="btn view-product-btn">
+                <i class="fas fa-eye"></i> Ver Producto
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto -->
+      <div class="col-md-3 d-flex">
+        <div class="card border-0 shadow-sm h-100 w-100 d-flex flex-column">
+          <img src="../static/images/Taladro-Percutor-20V-Brushless-2-baterias-de-2.0Ah-Cargador-Dewalt.jpg" class="card-img-top product-img" alt="Kit de Herramientas">
+          <div class="card-body text-center d-flex flex-column justify-content-between">
+            <div>
+              <h6 class="card-title">Kit Herramientas 80 piezas</h6>
+              <p class="fw-bold">$79.990</p>
+            </div>
+            <div class="d-flex justify-content-center gap-2 mt-3">
+              <button class="btn add-cart-btn">
+                <i class="fas fa-cart-plus"></i> Agregar al Carro
+              </button>
+              <a href="#" class="btn view-product-btn">
+                <i class="fas fa-eye"></i> Ver Producto
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+   <!-- ***** Footer Start ***** -->
+<!-- suscribiteeepibe-->
+<section class="py-5 bg-warning text-dark">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-8 mb-4 mb-lg-0">
+        <h3 class="fw-bold">Suscríbete a nuestro boletín y obtén un 30% de descuento</h3>
+        <p class="mb-3">Recibe ofertas exclusivas en herramientas, maquinaria y más.</p>
+        <form id="subscribe" method="get">
+          <div class="row g-2">
+            <div class="col-md-5">
+              <input type="text" class="form-control" placeholder="Tu Nombre" required>
+            </div>
+            <div class="col-md-5">
+              <input type="email" class="form-control" placeholder="Tu Correo Electrónico" required>
+            </div>
+            <div class="col-md-2 d-grid">
+              <button type="submit" class="btn btn-dark">
+                <i class="fa fa-paper-plane"></i> Enviar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-lg-4">
+        <ul class="list-unstyled small">
+          <li><strong>Ubicación:</strong> Calle Ficticia 123, Santiago</li>
+          <li><strong>Horario:</strong> Lunes a Sábado, 08:00 - 18:00</li>
+          <li><strong>Email:</strong> ventas@ferremas.cl</li>
+          <li><strong>Redes Sociales:</strong> 
+            <a href="#" class="text-dark">Facebook</a>, 
+            <a href="#" class="text-dark">Instagram</a>, 
+            <a href="#" class="text-dark">LinkedIn</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- FOOTER -->
+
+
+<!-- ***** Footer Start ***** -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <!-- Logo y contacto -->
+            <div class="col-lg-3">
+                <div class="first-item">
+                    <div class="logo">
+                        <img src="{% static 'images/logoFerremas.jpg' %}" alt="Ferremas">
+                    </div>
+                    <ul>
+                        <li><a href="#">Av. Principal 123, Santiago, Chile</a></li>
+                        <li><a href="mailto:contacto@ferremas.cl">contacto@ferremas.cl</a></li>
+                        <li><a href="tel:+56975787425">+56 9 1234 5678</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Categorías -->
+            <div class="col-lg-3">
+                <h4>Categorías</h4>
+                <ul>
+                    <li><a href="#">Herramientas Eléctricas</a></li>
+                    <li><a href="#">Materiales de Construcción</a></li>
+                    <li><a href="#">Ferretería General</a></li>
+                    <li><a href="#">Pinturas y Accesorios</a></li>
+                </ul>
+            </div>
+
+            <!-- Enlaces útiles -->
+            <div class="col-lg-3">
+                <h4>Enlaces Útiles</h4>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Nosotros</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Contáctanos</a></li>
+                </ul>
+            </div>
+
+            <!-- Ayuda e información -->
+            <div class="col-lg-3">
+                <h4>Atención al Cliente</h4>
+                <ul>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="#">Envíos y Devoluciones</a></li>
+                    <li><a href="#">Garantía</a></li>
+                    <li><a href="#">Soporte Técnico</a></li>
+                </ul>
+            </div>
+
+            <!-- Derechos y redes sociales -->
+            <div class="col-lg-12">
+                <div class="under-footer">
+                    <p>&copy; 2025 Ferremas. Todos los derechos reservados.</p>
+                    
+                    <ul class="social-icons">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
+  <!-- Bootstrap JS desde CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Script propio -->
+  <script src="{% static 'js/main.js' %}"></script>
