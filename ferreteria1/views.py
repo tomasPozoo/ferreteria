@@ -1,10 +1,25 @@
 from django.shortcuts import render
+import requests
+from django.contrib import messages
+from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect
+
+FIREBASE_API_KEY = 'AIzaSyA4QXFkzz7f3Yej76d_4kuwKcMtuyQdY_c'
 
 def home(request):
     return render(request, 'home.html')
 
-def login(request):
-    return render(request, 'login.html')
+def login_view(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        user = authenticate(request, username=username, password=password)
+        if user:
+            login(request, user)  # Aquí sí se usará el login de Django
+            return redirect("home")
+        else:
+            return render(request, "login.html", {"error": "Usuario o contraseña incorrectos"})
+    return render(request, "login.html")
 
 def crear(request):
     return render(request, 'crear.html')

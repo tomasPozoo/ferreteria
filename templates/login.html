@@ -9,8 +9,8 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
   <!-- Bootstrap JS (carrusel) -->
+  <script src="{% static 'login-handler.js' %}"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
@@ -41,20 +41,28 @@
 
   <!-- fin barritaNavegacionnn-->
 
-
 <!-- Login -->
+<!-- ... tu HTML ... -->
+
+<!-- Tu formulario de login -->
+<!-- Tu formulario de login -->
 <section class="login-section">
   <div class="login-container">
     <h2>Iniciar Sesión</h2>
-    <form action="/login/" method="POST">
+
+    <!-- IMPORTANTE: Usa POST y agrega {% csrf_token %} -->
+    <form id="loginForm" method="POST" action="{% url 'login' %}">
+      {% csrf_token %}
       <div class="form-group">
         <label for="username">Usuario</label>
         <input type="text" id="username" name="username" placeholder="Ingresa tu usuario" required>
       </div>
+
       <div class="form-group">
         <label for="password">Contraseña</label>
         <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
       </div>
+
       <button type="submit" class="login-button">
         <i class="fas fa-sign-in-alt"></i> Ingresar
       </button>
@@ -62,20 +70,19 @@
 
     <!-- Olvidaste contraseña -->
     <div class="mt-3">
-      <a href="/recuperar/" class="forgot-link">¿Olvidaste tu contraseña?</a>
+      <a href="{% url 'cambioContrasena' %}" class="forgot-link">¿Olvidaste tu contraseña?</a>
     </div>
 
     <!-- Crear cuenta -->
     <div class="mt-4">
       <p>¿No tienes cuenta?</p>
-      <a href="/crear/" class="register-button">
+      <a href="{% url 'crear' %}" class="register-button">
         <i class="fas fa-user-plus"></i> Crear Cuenta
       </a>
     </div>
   </div>
 </section>
 
- <!-- finnnLoggin-->
 
 <!-- ***** Footer Start ***** -->
 <footer>
@@ -144,11 +151,7 @@
         </div>
     </div>
 </footer>
-
+  <script src="{% static './login-handler.js' %}"></script>
 </body>
 </html>
-  <!-- Bootstrap JS desde CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Script propio -->
-  <script src="{% static 'js/main.js' %}"></script>
