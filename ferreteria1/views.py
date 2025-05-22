@@ -10,16 +10,17 @@ def home(request):
     return render(request, 'home.html')
 
 def login_view(request):
-    if request.method == "POST":
-        username = request.POST.get("username")
-        password = request.POST.get("password")
+    if request.method == 'POST':
+        username = request.POST["username"]
+        password = request.POST["password"]
         user = authenticate(request, username=username, password=password)
         if user:
-            login(request, user)  # Aquí sí se usará el login de Django
-            return redirect("home")
+            login(request, user)
+            messages.success(request, "Sesión iniciada correctamente.")
+            return redirect('/')  # O redirige a donde prefieras
         else:
-            return render(request, "login.html", {"error": "Usuario o contraseña incorrectos"})
-    return render(request, "login.html")
+            messages.error(request, "Credenciales incorrectas.")
+    return render(request, 'login.html')
 
 def crear(request):
     return render(request, 'crear.html')

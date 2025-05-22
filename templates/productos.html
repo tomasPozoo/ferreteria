@@ -40,6 +40,24 @@
   </nav>
 
   <!-- fin barritaNavegacionnn-->
+  <section class="bienvenida-section">
+  <div class="bienvenida-card">
+    {% if user.is_authenticated %}
+      <h2>¡Bienvenido, {{ user.username }}!</h2>
+      <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="logout-button">
+          <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+        </button>
+      </form>
+    {% else %}
+      <h2>Bienvenido a nuestro sitio</h2>
+      <p>
+        <a href="{% url 'login' %}" class="login-link">Inicia sesión</a> para acceder a tu cuenta.
+      </p>
+    {% endif %}
+  </div>
+</section>
 
 
 <!-- *****  ***** -->

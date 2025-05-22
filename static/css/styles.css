@@ -405,9 +405,93 @@ body {
     padding: 0;
 }
 
+.bienvenida-section {
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bienvenida-card {
+  background-color: rgb(61, 55, 55);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+
+.bienvenida-card h2 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.bienvenida-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.login-link {
+  color: #f39c12;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+.logout-button {
+  margin-top: 1.5rem;
+  padding: 10px 25px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button i {
+  margin-right: 8px;
+}
+
+.logout-button:hover {
+  background-color: #c0392b;
+}
 
 
 
+.indicadores-container {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
 
+.indicadores-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1f2937;
+}
 
+.indicador {
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e7eb;
+  font-family: Arial, sans-serif;
+}
 
+.indicador:last-child {
+  border-bottom: none;
+}
+
+.indicador .titulo {
+  font-weight: bold;
+  color: #2563eb;
+}

@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
+from django.contrib.auth.views import LogoutView
 
 
 urlpatterns = [
@@ -31,4 +32,5 @@ urlpatterns = [
     path('contactanos/', views.contactanos, name='contactanos'),
     path('shop/', views.shop, name='shop'),
     path('cambioContrasena/', views.cambioContrasena, name='cambioContrasena'),
+    path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
 ]

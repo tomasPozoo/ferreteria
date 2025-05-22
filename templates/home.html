@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Navbar Ferremas</title>
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <script src="{% static 'js/miIndicador.js' %}"></script>
+
+  
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -39,7 +42,32 @@
     </div>
   </nav>
 
-  <!-- Carrusel -->
+  <!-- logo -->
+
+<section class="bienvenida-section">
+  <div class="bienvenida-card">
+    {% if user.is_authenticated %}
+      <h2>¡Bienvenido, {{ user.username }}!</h2>
+      <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="logout-button">
+          <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+        </button>
+      </form>
+    {% else %}
+      <h2>Bienvenido a nuestro sitio</h2>
+      <p>
+        <a href="{% url 'login' %}" class="login-link">Inicia sesión</a> para acceder a tu cuenta.
+      </p>
+    {% endif %}
+  </div>
+</section>
+
+
+<!-- Carrusel --><!-- Carrusel -->
+
+<!-- Carrusel --><!-- Carrusel -->
+
 <!-- Carrusel -->
 <section class="main-banner py-5" id="top">
   <div class="container-fluid">
@@ -226,6 +254,7 @@
 
 
   <!-- CATÁLOGO -->
+  
 
 
 <!-- ***** Catálogo Makita ***** -->
@@ -248,6 +277,90 @@
 
   </div>
 </section>
+
+
+
+<!-- dolaresss-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Indicadores Económicos</title>
+  <style>
+    .indicadores-container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .indicador {
+      padding: 10px 0;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .titulo {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="indicadores-container">
+  <h2>Indicadores Económicos de Chile</h2>
+  <div id="UF" class="indicador"></div>
+  <div id="DolarO" class="indicador"></div>
+  <div id="DolarA" class="indicador"></div>
+  <div id="Euro" class="indicador"></div>
+  <div id="IPC" class="indicador"></div>
+  <div id="UTM" class="indicador"></div>
+  <div id="IVP" class="indicador"></div>
+  <div id="Imacec" class="indicador"></div>
+</div>
+
+<script>
+  const indicadores = [
+    { id: "UF", label: "UF", key: "uf" },
+    { id: "DolarO", label: "Dólar observado", key: "dolar" },
+    { id: "DolarA", label: "Dólar acuerdo", key: "dolar_intercambio" },
+    { id: "Euro", label: "Euro", key: "euro" },
+    { id: "IPC", label: "IPC", key: "ipc" },
+    { id: "UTM", label: "UTM", key: "utm" },
+    { id: "IVP", label: "IVP", key: "ivp" },
+    { id: "Imacec", label: "Imacec", key: "imacec" }
+  ];
+
+  fetch('https://api.allorigins.win/raw?url=https://mindicador.cl/api')
+    .then(res => res.json())
+    .then(data => {
+      indicadores.forEach(({ id, label, key }) => {
+        const el = document.getElementById(id);
+        if (data[key]) {
+          const valor = data[key].valor.toLocaleString('es-CL', {
+            style: (key === 'ipc' || key === 'imacec') ? 'decimal' : 'currency',
+            currency: 'CLP',
+            minimumFractionDigits: 2
+          });
+          const sufijo = (key === 'ipc' || key === 'imacec') ? '%' : '';
+          el.innerHTML = `<span class="titulo">${label}:</span> ${valor}${sufijo}`;
+        } else {
+          el.innerHTML = `<span class="titulo">${label}:</span> No disponible`;
+        }
+      });
+    })
+    .catch(error => {
+      console.error('Error al obtener los datos:', error);
+      document.querySelector(".indicadores-container").innerHTML += "<p>Error al cargar los indicadores.</p>";
+    });
+</script>
+
+</body>
+</html>
+
+<!-- Texto + Botón -->
+
   <!-- suscribiteeepibe-->
 <section class="py-5 bg-warning text-dark">
   <div class="container">
@@ -360,6 +473,7 @@
 </footer>
 
 </body>
+
 </html>
 
   
